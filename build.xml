@@ -200,7 +200,7 @@
 		<echo>Access Token Obtained From Salesforce :  ${accessToken}</echo>
     </target>-->
 	
-<!--	<target name="deployProd" depends="getSessionId">
+	<target name="deployProd">
 		<echo>Deployment Begins...</echo>
 		<if>
 			<and><equals arg1="${canDeploy}" arg2="true"/> </and>
@@ -235,7 +235,7 @@
 		</if>
     </target>
 	
-	<target name="validateProd" depends="getSessionId">
+	<target name="validateProd" >
 		<echo>Validation Begins...</echo>
 		<if>
 			<and><equals arg1="${canDeploy}" arg2="true"/> </and>
@@ -280,5 +280,5 @@
     </target>
 	<target name="builderValidateProd" depends="diffBuilderWithGitCommit,validateProd">
 		
-    </target>-->
+    </target>
 </project>
