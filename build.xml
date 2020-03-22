@@ -177,7 +177,7 @@
 		</if>
     </target>
 	
-	<!--<target name="getSessionId">
+	<target name="getSessionId">
     	<exec executable="curl" outputproperty="curl.result">
 			<arg line="-X POST ${sf.serverurl}/services/oauth2/token?grant_type=refresh_token&amp;client_id=${sf.clientId}&amp;client_secret=${sf.clientSecret}&amp;refresh_token=${sf.refreshToken}"/>
 		</exec>
@@ -198,9 +198,8 @@
 		  </sequential>
 		</for>
 		<echo>Access Token Obtained From Salesforce :  ${accessToken}</echo>
-    </target>-->
-	
-	<target name="deployProd">
+    </target>
+	<target name="deployProd" depends="getSessionId">
 		<echo>Deployment Begins...</echo>
 		<if>
 			<and><equals arg1="${canDeploy}" arg2="true"/> </and>
@@ -235,7 +234,7 @@
 		</if>
     </target>
 	
-	<target name="validateProd" >
+	<target name="validateProd" depends="getSessionId">
 		<echo>Validation Begins...</echo>
 		<if>
 			<and><equals arg1="${canDeploy}" arg2="true"/> </and>
