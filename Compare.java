@@ -16,6 +16,7 @@ public class Compare
 	File dir2 = new File("D:\\GIT --PG\\salesforce\\src");
 	public static void main(String ...args) 
 	{
+		system.out.println("test");
 		Compare compare = new Compare();
 		try
 		{
